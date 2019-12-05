@@ -54,5 +54,16 @@ def get_keys(format_string):
         keys.append(key)
     return keys
 
+def remove_word_classes(format_string):
+    """
+    Removes the word classes (anything inside a set of curly braces) 
+    from the default text file
+    """
+    regex = r"\{.*?\}"
+    output = re.sub(regex, '{}', format_string)
+    print(output)
+    return output
+
+
 default = read_file('default.txt')
-get_keys(default)
+remove_word_classes(default)
