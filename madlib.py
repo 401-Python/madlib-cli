@@ -6,6 +6,7 @@ will be used to form a story with a default text file
 
 import re
 
+
 def greeting():
     """Greet the user and provide instructions."""
     print("Welcome to Madlib! You'll be prompted to come up with")
@@ -64,19 +65,19 @@ def remove_word_classes(format_string):
 
 
 def get_responses(prompts):
-
     """
     This function accetps an array of strings (generated from the get_keys function)
     And for each string, prompts the user for a word, then appends that word
     to a list to be added to the output txt file
-    
+
     """
     responses = []
-    
+
     for prompt in prompts:
         response = input(f'Enter {prompt}: ')
         responses.append(response)
     return responses
+
 
 def create_madlib(default):
     """
@@ -88,7 +89,7 @@ def create_madlib(default):
       Lastly we run the .format() method on our sanitized text, we pass
       in the responses which will be added to the story, store it in a variable
       and return it
-      
+
     """
     prompts = get_keys(default)
     sanitized = remove_word_classes(default)
