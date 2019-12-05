@@ -14,9 +14,9 @@ def greeting():
 
 
 def read_file(path):
-    """Read path and return the data as a string."""
-    with open(path, 'r') as rf:
-        return rf.read()
+    """Read a file path and return its contents as a string"""
+    with open(path, 'r') as f:
+        return f.read()
 
 
 def write_file(path, out):
@@ -49,6 +49,7 @@ def get_keys(format_string):
         end = format_string.find('}', start)
         key = format_string[start:end]
         keys.append(key)
+    print(keys)
     return keys
 
 
