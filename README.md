@@ -3,7 +3,7 @@
 ### Author: Alvian Joseph
 
 ### Links and Resources
-* [PR]()
+* [PR](https://github.com/401-Python/madlib-cli/pull/1)
 * [![Build Status]()
 * [front end]()
 
