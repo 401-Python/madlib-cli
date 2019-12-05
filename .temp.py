@@ -1,22 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-# if __name__ == "__main__":
-#     greeting()
-#     default = read_file('default.txt')
-#     story = output_story(default)
-#     write_file('madlib_complete.txt', story)
-
-
 menu_template = '{} and {} with a side of {} please'
 
 foods = ['ham', 'eggs', 'bacon']

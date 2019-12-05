@@ -6,7 +6,6 @@ will be used to form a story with a default text file
 
 import re
 
-
 def greeting():
     """Greet the user and provide instructions."""
     print("Welcome to Madlib! You'll be prompted to come up with")
@@ -76,11 +75,29 @@ def get_responses(prompts):
     for prompt in prompts:
         response = input(f'Enter {prompt}: ')
         responses.append(response)
-    print(responses)
     return responses
 
+def create_madlib(default):
+    """
+      This function combines all of our helper functions to produce the final
+      madlib story.
+      First we get the prompts by calling get keys on the default.txt file
+      Next we santize the txt by removing all of the keys
+      Next we gather the user responses and store them in a variable
+      Lastly we run the .format() method on our sanitized text, we pass
+      in the responses which will be added to the story, store it in a variable
+      and return it
+      
+    """
+    prompts = get_keys(default)
+    sanitized = remove_word_classes(default)
+    responses = get_responses(prompts)
+    madlib = sanitized.format(*responses)
+    return madlib
 
-default = read_file('default.txt')
-prompts = get_keys(default)
 
-get_responses(prompts)
+if __name__ == "__main__":
+    greeting()
+    default = read_file('default.txt')
+    story = create_madlib(default)
+    write_file('madlib.txt', story)
