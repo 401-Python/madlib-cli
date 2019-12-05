@@ -45,14 +45,13 @@ def get_keys(format_string):
 
     word_count = format_string.count('{')
     for i in range(word_count):
-        start = format_string.find('{', end) + 1 # +1 so we get the first char inside the curly
-        print('start', start)
-        end = format_string.find('}', start) 
-        print('end', end)
+        # +1 so we get the first char inside the curly
+        start = format_string.find('{', end) + 1
+        end = format_string.find('}', start)
         key = format_string[start:end]
-        print('key', key)
         keys.append(key)
     return keys
+
 
 def remove_word_classes(format_string):
     """
@@ -61,9 +60,27 @@ def remove_word_classes(format_string):
     """
     regex = r"\{.*?\}"
     output = re.sub(regex, '{}', format_string)
-    print(output)
     return output
 
 
+def get_responses(prompts):
+
+    """
+    This function accetps an array of strings (generated from the get_keys function)
+    And for each string, prompts the user for a word, then appends that word
+    to a list to be added to the output txt file
+    
+    """
+    responses = []
+    
+    for prompt in prompts:
+        response = input(f'Enter {prompt}: ')
+        responses.append(response)
+    print(responses)
+    return responses
+
+
 default = read_file('default.txt')
-remove_word_classes(default)
+prompts = get_keys(default)
+
+get_responses(prompts)
