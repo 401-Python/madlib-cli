@@ -26,3 +26,33 @@ def write_file(path, out):
         return wf.write(out)
 
 
+def get_keys(format_string):
+    """
+    The text file contains several words classes
+    surrounded by curly braces.
+    This function will use those curly braces to
+    create keys for each of them.
+    First, to find out how many keys I need I run a count
+    on the input string for all the open curly braces
+    Then, I form the keys by finding the index of
+    each set of curlys and slicing out substring
+    of each.
+    The end result should be an array of each word contained
+    in two curly braces
+    """
+    keys = []
+    end = 0
+
+    word_count = format_string.count('{')
+    for i in range(word_count):
+        start = format_string.find('{', end) + 1 # +1 so we get the first char inside the curly
+        print('start', start)
+        end = format_string.find('}', start) 
+        print('end', end)
+        key = format_string[start:end]
+        print('key', key)
+        keys.append(key)
+    return keys
+
+default = read_file('default.txt')
+get_keys(default)
